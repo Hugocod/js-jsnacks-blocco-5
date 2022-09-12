@@ -1,3 +1,59 @@
+/* SNACK 1*/
+/*
+ * Creare un array di oggetti di squadre di calcio. 
+ * Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
+ * Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
+ * Generare numeri random al posto degli 0 nelle proprietà:
+ * punti fatti e falli subiti
+*/
+
+const footballTeams =
+    [
+        { nome: "Milan", falli: 0, punti: 0 },
+        { nome: "Inter", falli: 0, punti: 0 },
+        { nome: "Juventus", falli: 0, punti: 0 },
+        { nome: "Atalanta", falli: 0, punti: 0 },
+        { nome: "Bologna", falli: 0, punti: 0 }
+    ]
+
+footballTeams.forEach((team) => {
+    team.falli = getRandomNumbers(0, 50);
+    team.punti = getRandomNumbers(0, 50);
+})
+
+console.log(footballTeams);
+
+
+function getRandomNumbers(min, max) {
+    const range = max - min + 1;
+    const randomNumber = Math.floor(Math.random() * range + min);
+    return randomNumber;
+}
+
+
+
+/* SNACK 2*/
+/*
+ * Si scriva una funzione che accetti tre argomenti, 
+ * un array e due numeri (a più piccolo di b). 
+ * La funzione ritornerà un nuovo array con i valori 
+ * che hanno la posizione compresa tra i due numeri.
+ */
+
+const arrayNumbers = [3, 9, 15, 22, 33, 72, 80];
+
+function position(a, b, ...array) {
+    const newArray = array.filter((elemento, i) => {
+        if (i >= a && i <= b) {
+            return true;
+        }
+    })
+    return newArray;
+}
+
+console.log(position(2, 5, ...arrayNumbers));
+
+
 /* SNACK 3*/
 /*
  * Crea 10 oggetti che rappresentano una zucchina.
